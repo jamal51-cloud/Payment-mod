@@ -152,7 +152,7 @@ body{
 }
 
 /* tombol */
-.wa, .done{
+.wa{
   display:block;
   margin-top:12px;
   padding:12px;
@@ -162,9 +162,11 @@ body{
   transition:0.3s;
   position:relative;
   overflow:hidden;
+  background:#25D366;
+  color:white;
 }
 
-.wa::before, .done::before{
+.wa::before{
   content:"";
   position:absolute;
   width:100%;
@@ -174,22 +176,12 @@ body{
   background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
 }
 
-.wa:hover::before, .done:hover::before{
+.wa:hover::before{
   left:100%;
   transition:0.6s;
 }
 
-.wa{
-  background:#25D366;
-  color:white;
-}
-
-.done{
-  background:#ffd700;
-  color:black;
-}
-
-.wa:hover, .done:hover{
+.wa:hover{
   transform:translateY(-3px);
 }
 
@@ -206,7 +198,6 @@ body{
 
 <div class="overlay"></div>
 
-<!-- sparkle banyak -->
 <div class="sparkle" style="left:10%; animation-delay:0s;"></div>
 <div class="sparkle" style="left:30%; animation-delay:1s;"></div>
 <div class="sparkle" style="left:60%; animation-delay:2s;"></div>
@@ -247,10 +238,6 @@ body{
 Hubungi Admin
 </a>
 
-<a class="done" href="https://wa.me/6281376093771?text=Halo%20admin%20PAYMENT%20MOD%2C%20saya%20sudah%20transfer" target="_blank">
-Saya Sudah Transfer
-</a>
-
 <div class="footer">© 2026 PAYMENT MOD</div>
 
 </div>
@@ -258,10 +245,13 @@ Saya Sudah Transfer
 <script>
 function copyText(id){
   let text=document.getElementById(id).innerText;
-  navigator.clipboard.writeText(text);
-  alert("Nomor disalin");
+  if(text !== "-") {
+    navigator.clipboard.writeText(text);
+    alert("Nomor disalin");
+  }
 }
 </script>
 
 </body>
 </html>
+
