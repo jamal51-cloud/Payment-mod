@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAYMENT MOD</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:url('https://files.catbox.moe/qq7c46.jpg') no-repeat center/cover;
+  overflow:hidden;
+}
+
+/* overlay */
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+}
+
+/* SPARKLE */
+.sparkle{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:#ffd700;
+  border-radius:50%;
+  animation:spark 3s linear infinite;
+  opacity:0.8;
+}
+
+@keyframes spark{
+  0%{transform:translateY(0) scale(0);opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(-200px) scale(1.5);opacity:0;}
+}
+
+/* container */
+.container{
+  position:relative;
+  width:340px;
+  padding:25px;
+  border-radius:20px;
+  z-index:2;
+  text-align:center;
+}
+
+/* LOGO EMAS */
+.logo{
+  font-size:28px;
+  font-weight:700;
+  background:linear-gradient(90deg,#ffd700,#fff5cc,#ffd700);
+  background-size:200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shineText 4s linear infinite, floatLogo 4s ease-in-out infinite;
+  text-shadow:0 0 25px rgba(255,215,0,0.7);
+}
+
+@keyframes shineText{
+  0%{background-position:0%;}
+  100%{background-position:200%;}
+}
+
+@keyframes floatLogo{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-5px);}
+}
+
+.tagline{
+  font-size:12px;
+  color:#ddd;
+  margin-bottom:20px;
+}
+
+/* CARD */
+.card{
+  position:relative;
+  background:rgba(255,255,255,0.05);
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:12px;
+  border:1px solid rgba(255,215,0,0.3);
+  overflow:hidden;
+  transition:0.3s;
+  backdrop-filter:blur(6px);
+}
+
+/* kilau emas */
+.card::before{
+  content:"";
+  position:absolute;
+  width:150%;
+  height:100%;
+  top:0;
+  left:-100%;
+  background:linear-gradient(120deg,transparent,rgba(255,215,0,0.5),transparent);
+  transition:0.6s;
+}
+
+.card:hover::before{
+  left:100%;
+}
+
+.card:hover{
+  transform:translateY(-5px) scale(1.03);
+  box-shadow:0 10px 35px rgba(0,0,0,0.7),
+             0 0 25px rgba(255,215,0,0.5);
+}
+
+.method{
+  font-weight:600;
+  color:#fff;
+}
+
+.number{
+  font-size:14px;
+  margin-top:4px;
+  color:#eee;
+}
+
+/* button */
+.copy{
+  margin-top:8px;
+  padding:6px 12px;
+  border:none;
+  border-radius:8px;
+  background:#ffd700;
+  color:black;
+  font-size:12px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.copy:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 10px rgba(255,215,0,0.7);
+}
+
+/* tombol */
+.wa, .done{
+  display:block;
+  margin-top:12px;
+  padding:12px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.wa::before, .done::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  left:-100%;
+  top:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+}
+
+.wa:hover::before, .done:hover::before{
+  left:100%;
+  transition:0.6s;
+}
+
+.wa{
+  background:#25D366;
+  color:white;
+}
+
+.done{
+  background:#ffd700;
+  color:black;
+}
+
+.wa:hover, .done:hover{
+  transform:translateY(-3px);
+}
+
+/* footer */
+.footer{
+  margin-top:12px;
+  font-size:11px;
+  color:#ccc;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<!-- sparkle banyak -->
+<div class="sparkle" style="left:10%; animation-delay:0s;"></div>
+<div class="sparkle" style="left:30%; animation-delay:1s;"></div>
+<div class="sparkle" style="left:60%; animation-delay:2s;"></div>
+<div class="sparkle" style="left:80%; animation-delay:1.5s;"></div>
+
+<div class="container">
+
+<div class="logo">PAYMENT MOD</div>
+<div class="tagline">Premium Payment Experience</div>
+
+<div class="card">
+<div class="method">DANA</div>
+<div class="number" id="dana">081376093771</div>
+<button class="copy" onclick="copyText('dana')">Salin</button>
+</div>
+
+<div class="card">
+<div class="method">GOPAY</div>
+<div class="number">-</div>
+</div>
+
+<div class="card">
+<div class="method">OVO</div>
+<div class="number">-</div>
+</div>
+
+<div class="card">
+<div class="method">SHOPEEPAY</div>
+<div class="number">-</div>
+</div>
+
+<div class="card">
+<div class="method">QRIS</div>
+<div class="number">Upload QRIS kamu</div>
+</div>
+
+<a class="wa" href="https://wa.me/6281376093771" target="_blank">
+Hubungi Admin
+</a>
+
+<a class="done" href="https://wa.me/6281376093771?text=Halo%20admin%20PAYMENT%20MOD%2C%20saya%20sudah%20transfer" target="_blank">
+Saya Sudah Transfer
+</a>
+
+<div class="footer">© 2026 PAYMENT MOD</div>
+
+</div>
+
+<script>
+function copyText(id){
+  let text=document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text);
+  alert("Nomor disalin");
+}
+</script>
+
+</body>
+</html>
